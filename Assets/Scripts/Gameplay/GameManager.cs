@@ -44,7 +44,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public List<List<MusicNote>> NotesByLane = new List<List<MusicNote>>();
     public List<MusicNote> SortedNotes = new List<MusicNote>();
-    
+
 #if UNITY_EDITOR
     [Header("DEBUG")]
     public string dbgTestChartResourceFilename = "Songs/Chords/info.json";
@@ -81,10 +81,10 @@ public class GameManager : MonoSingleton<GameManager>
             {
                 kb[ExpertKeys[i]].ReadValueFromEvent(eventPtr, out float K);
                 Smasher CorrespondingSmasher = ExpertSmashers[i];
-    
+
                 if (K > 0 && !CorrespondingSmasher.HeldLastFrame)
                     CorrespondingSmasher.Smash(false);
-                if (K<=0 && CorrespondingSmasher.HeldLastFrame)
+                if (K <= 0 && CorrespondingSmasher.HeldLastFrame)
                     CorrespondingSmasher.Smash(true);
                 CorrespondingSmasher.HeldLastFrame = K > 0;
                 CorrespondingSmasher.UpdateSmasherMaterial(K);
@@ -96,8 +96,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     //private void OnDisable()
     //{
-        //_pressThread.Dispose();
-        //_releaseThread.Dispose();
+    //_pressThread.Dispose();
+    //_releaseThread.Dispose();
     //}
 
     public void LoadConfiguration(string ConfigPathRelativeToStreamingAssets, InstrumentType Instrument, SongDifficulty Diff)
